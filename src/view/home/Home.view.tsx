@@ -199,21 +199,21 @@ export const Home: React.FC<any> = props => {
           </View>
           <View style={styles.view_row}>
             <Text style={styles.tx_score}>Games Won</Text>
-            <Text>{score[staChooseLevelScore]?.gamesWon}</Text>
+            <Text>{score?.[staChooseLevelScore]?.gamesWon | 0}</Text>
           </View>
           <View style={styles.view_row}>
             <Text style={styles.tx_score}>Total Games</Text>
-            <Text>{score[staChooseLevelScore]?.totalGame}</Text>
+            <Text>{score?.[staChooseLevelScore]?.totalGame | 0}</Text>
           </View>
 
           <View style={styles.view_row}>
             <Text style={styles.tx_score}>Win</Text>
             <Text>
-              {score[staChooseLevelScore]?.totalGame === 0
+              {score?.[staChooseLevelScore]?.totalGame === 0
                 ? 0
                 : Math.round(
-                    (score[staChooseLevelScore]?.gamesWon /
-                      score[staChooseLevelScore]?.totalGame) *
+                    (score?.[staChooseLevelScore]?.gamesWon /
+                      score?.[staChooseLevelScore]?.totalGame) *
                       100,
                   )}
               %
@@ -222,7 +222,10 @@ export const Home: React.FC<any> = props => {
           <View style={styles.view_row}>
             <Text style={styles.tx_score}>Best</Text>
             <Text>
-              {fncSecondsToHMS(score[staChooseLevelScore]?.bestTime).HmsString}
+              {
+                fncSecondsToHMS(score?.[staChooseLevelScore]?.bestTime | 0)
+                  .HmsString
+              }
             </Text>
           </View>
         </View>

@@ -123,6 +123,8 @@ export const PlayingGame: React.FC<any> = props => {
     _arrHistoRy = lodash.cloneDeep(staListHistory);
     _arrHistoRy.push([generateArrSudokuFill, _matrixNote]);
     setStaListHistory(_arrHistoRy);
+    console.log('score', score);
+
     let _score: any = {};
     _score = lodash.cloneDeep(score);
     _score[params?.level].totalGame = _score[params?.level].totalGame + 1;
